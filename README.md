@@ -9,3 +9,7 @@ Adjustable via centrifuge/AI tests. Sketches: [capsule-complete.png](capsule-com
 
 **License**: CC BY-NC-SA (credit required, no commercial use).
 **Contact**: [marta.silveira15@hotmail.com]
+<img width="1024" height="1024" alt="1760007357403" src="https://github.com/user-attachments/assets/774a6f2e-e48d-4890-92cb-06b510ddc506" />
+<img width="1024" height="1024" alt="1760007314319" src="https://github.com/user-attachments/assets/4e0ca785-7a7a-4432-b16a-83903f8c4bbb" />
+<img width="1024" height="1024" alt="1760007300296" src="https://github.com/user-attachments/assets/11ff038c-b1d8-4951-800c-17bceba98576" />
+<img width="1024" height="1024" alt="1760007234027" src="https://github.com/user-attachments/assets/e771cd24-de2e-4339-8f3d-459d2064a203" />
