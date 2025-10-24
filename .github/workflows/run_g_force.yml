@@ -26,6 +26,7 @@ jobs:
 
     # --- EXECUÇÃO DOS CÁLCULOS (Simulations/) ---
     
+    # O G-Force Calculator já gera o seu próprio gráfico
     - name: Executar Cálculo de Força G (Gera Chart 1)
       run: python Simulations/g_force_calculator.py
       
@@ -37,12 +38,10 @@ jobs:
 
     # --- EXECUÇÃO DAS VISUALIZAÇÕES (Visualizations/) ---
     
-    # O gráfico de G-Force já foi gerado acima.
-    
     - name: Executar Gráfico de Radiação
       run: python Visualizations/visualize_radiation.py
       
-    - name: Executar Gráfico Térmico
+    - name: Executar Gráfico Térmico (CORRIGIDO)
       run: python Visualizations/visualize_thermal.py
 
     # --- SALVAR ARTEFATOS (Upload) ---
