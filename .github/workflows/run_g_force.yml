@@ -1,5 +1,4 @@
 # .github/workflows/run_g_force.yml
-
 name: Simulação de Viabilidade da Cápsula
 
 # Define quando este workflow deve rodar:
