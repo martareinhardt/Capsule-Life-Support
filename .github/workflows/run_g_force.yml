@@ -1,0 +1,37 @@
+# .github/workflows/run_g_force.yml
+
+name: Calcular G-Force
+
+# Define quando este workflow deve rodar:
+on:
+  push:
+    # Rodar sempre que houver um commit na branch principal
+    branches: [ codespace-sturdy-bassoon-7vjp595g4qv62x44w ]
+    # Opcional: Rodar apenas quando o script de cálculo for modificado
+    paths:
+      - 'g_force_calculator.py'
+  # Opcional: permite rodar manualmente na aba 'Actions'
+  workflow_dispatch:
+
+jobs:
+  run-g-force-calc:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout do código: Pega o seu código do repositório
+    - uses: actions/checkout@v4
+
+    # 2. Configura o Python
+    - name: Configurar Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x' 
+
+    # 3. Instala dependências (se necessário)
+    - name: Instalar dependências (Nenhuma no momento)
+      run: |
+        python -m pip install --upgrade pip
+
+    # 4. Executa o script de cálculo de G-Force
+    - name: Executar Cálculo de G-Force
+      run: python g_force_calculator.py
