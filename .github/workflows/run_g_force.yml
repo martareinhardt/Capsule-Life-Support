@@ -16,20 +16,24 @@ jobs:
     steps:
     - name: Checkout do Código
       uses: actions/checkout@v4
-
+      
+    # PASSO DE DIAGNÓSTICO: Mostra os arquivos que o Action "vê"
+    # O objetivo é verificar se a pasta 'Simulations' está com letra maiúscula ou minúscula
+    - name: Listar o diretório de trabalho
+      run: ls -R
+      
     - name: Configurar Ambiente Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.x' 
 
-    # 1. Executa o script de cálculo de G-Force na nova pasta
+    # IMPORTANTE: Verifique se 'Simulations' está com a letra maiúscula correta
     - name: Executar Simulação de Força G
       run: python Simulations/g_force_calculator.py
       
-    # 2. Executa a Simulação de Radiação na nova pasta
     - name: Executar Simulação de Radiação
       run: python Simulations/radiation_shield.py
       
-    # 3. Executa a Simulação Térmica na nova pasta
     - name: Executar Simulação Térmica
       run: python Simulations/thermal_simulator.py
+      
