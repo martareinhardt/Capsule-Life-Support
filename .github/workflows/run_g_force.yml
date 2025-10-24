@@ -5,8 +5,15 @@ name: Calcular G-Force
 # Define quando este workflow deve rodar:
 on:
   push:
-    # Rodar sempre que houver um commit na branch principal
-    branches: [ codespace-sturdy-bassoon-7vjp595g4qv62x44w ]
+    # # Arquivo: .github/workflows/run_g_force.yml
+
+# ...
+on:
+  push:
+    branches: [ main ]  <-- CORRIJA ESTA LINHA!
+# ...
+ sempre que houver um commit na branch principal
+    branches: [main]
     # Opcional: Rodar apenas quando o script de cálculo for modificado
     paths:
       - 'g_force_calculator.py'
@@ -35,3 +42,4 @@ jobs:
     # 4. Executa o script de cálculo de G-Force
     - name: Executar Cálculo de G-Force
       run: python g_force_calculator.py
+
