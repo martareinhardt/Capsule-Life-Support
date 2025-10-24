@@ -20,4 +20,12 @@ jobs:
     # Este passo usa o ambiente básico do shell para rodar o Python
     - name: Tenta rodar o script com python
       run: python g_force_calculator.py
+          # 3. Executa o script de cálculo de G-Force
+    - name: Executar Cálculo de G-Force e exibir resultados
+      run: python g_force_calculator.py
+      
+    # 4. Executa o novo script de proteção contra radiação
+    - name: Executar Simulação de Radiação
+      run: python radiation_shield.py
+      
       
