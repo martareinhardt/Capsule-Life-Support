@@ -1,4 +1,4 @@
-# .github/workflows/run_g_force.yml - VERSÃO SIMPLIFICADA
+# .github/wo
 
 name: Teste Básico de Execução
 
@@ -28,4 +28,19 @@ jobs:
     - name: Executar Simulação de Radiação
       run: python radiation_shield.py
       
+      # ... (código YAML acima)
+    steps:
+    # 1. Checkout e Configurações...
+    # ...
+    # 3. Executa o script de cálculo de G-Force
+    - name: Executar Cálculo de G-Force e exibir resultados
+      run: python g_force_calculator.py
+      
+    # 4. Executa a Simulação de Radiação
+    - name: Executar Simulação de Radiação
+      run: python radiation_shield.py
+      
+    # 5. Executa a Simulação Térmica
+    - name: Executar Simulação Térmica Criogênica
+      run: python thermal_simulator.py
       
