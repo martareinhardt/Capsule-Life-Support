@@ -22,15 +22,14 @@ jobs:
       with:
         python-version: '3.x' 
 
-    # Camiho atualizado: agora usa 'Simulations/g_force_calculator.py'
+    # 1. Executa o script de cálculo de G-Force na nova pasta
     - name: Executar Simulação de Força G
       run: python Simulations/g_force_calculator.py
       
-    # Camiho atualizado: agora usa 'Simulations/radiation_shield.py'
+    # 2. Executa a Simulação de Radiação na nova pasta
     - name: Executar Simulação de Radiação
       run: python Simulations/radiation_shield.py
       
-    # Camiho atualizado: agora usa 'Simulations/thermal_simulator.py'
+    # 3. Executa a Simulação Térmica na nova pasta
     - name: Executar Simulação Térmica
       run: python Simulations/thermal_simulator.py
-      
