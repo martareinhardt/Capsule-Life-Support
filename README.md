@@ -55,3 +55,8 @@ The project follows an automated, best-practice engineering workflow:
     * **Calculations:** `Simulations/`
     * **Visualizations:** `Visualizations/`
 * **Automation:** The **`.github/workflows/run_g_force.yml`** workflow ensures all simulations and charts are executed and validated automatically upon every code change.
+
+## Next Steps
+- Integrate IoT sensors for real-time data.
+- Add ML models for predictive G-Force adjustments.
+- Collaborate? Reach out: martareinhardt@email.com
