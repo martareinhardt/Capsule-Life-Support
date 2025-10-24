@@ -1,9 +1,9 @@
 # .github/workflows/run_g_force.yml
-name: Simulação de Viabilidade da Cápsula
-# Define quando este workflow deve rodar:
+
+name: Simulação Completa e Visualização
+
 on:
   push:
-    # Rodar em qualquer commit na branch 'main'
     branches: [ main ] 
   workflow_dispatch:
 
@@ -15,23 +15,56 @@ jobs:
     - name: Checkout do Código
       uses: actions/checkout@v4
       
-    # PASSO DE DIAGNÓSTICO: Mostra os arquivos que o Action "vê"
-    # O objetivo é verificar se a pasta 'Simulations' está com letra maiúscula ou minúscula
-    - name: Listar o diretório de trabalho
-      run: ls -R
-      
     - name: Configurar Ambiente Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.x' 
 
-    # IMPORTANTE: Verifique se 'Simulations' está com a letra maiúscula correta
-    - name: Executar Simulação de Força G
+    # PASSO 1: Instala Matplotlib e Numpy para gerar os gráficos
+    - name: Instalar Dependências de Visualização
+      run: pip install matplotlib numpy
+
+    # --- EXECUÇÃO DOS CÁLCULOS (Simulations/) ---
+    
+    - name: Executar Cálculo de Força G (Gera Chart 1)
       run: python Simulations/g_force_calculator.py
       
-    - name: Executar Simulação de Radiação
+    - name: Executar Cálculo de Radiação
       run: python Simulations/radiation_shield.py
       
-    - name: Executar Simulação Térmica
+    - name: Executar Cálculo Térmico
       run: python Simulations/thermal_simulator.py
+
+    # --- EXECUÇÃO DAS VISUALIZAÇÕES (Visualizations/) ---
+    
+    # O gráfico de G-Force já foi gerado acima.
+    
+    - name: Executar Gráfico de Radiação
+      run: python Visualizations/visualize_radiation.py
       
+    - name: Executar Gráfico Térmico
+      run: python Visualizations/visualize_thermal.py
+
+    # --- SALVAR ARTEFATOS (Upload) ---
+    # Os arquivos PNG são salvos na raiz do ambiente de execução
+    
+    - name: Upload Gráfico de Força G
+      uses: actions/upload-artifact@v4
+      with:
+        name: g-force-chart
+        path: g_force_reduction_chart.png 
+        if-no-files-found: ignore
+        
+    - name: Upload Gráfico de Radiação
+      uses: actions/upload-artifact@v4
+      with:
+        name: radiation-chart
+        path: radiation_viability_chart.png 
+        if-no-files-found: ignore
+        
+    - name: Upload Gráfico Térmico
+      uses: actions/upload-artifact@v4
+      with:
+        name: thermal-chart
+        path: thermal_viability_chart.png 
+        if-no-files-found: ignore
