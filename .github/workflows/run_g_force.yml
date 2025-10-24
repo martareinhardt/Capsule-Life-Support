@@ -5,9 +5,8 @@ name: Simulação de Viabilidade da Cápsula
 # Define quando este workflow deve rodar:
 on:
   push:
-    # Rodar AGORA em qualquer commit na branch 'main'
+    # Rodar em qualquer commit na branch 'main'
     branches: [ main ] 
-  # Permite rodar manualmente na aba 'Actions'
   workflow_dispatch:
 
 jobs:
@@ -23,11 +22,15 @@ jobs:
       with:
         python-version: '3.x' 
 
+    # Camiho atualizado: agora usa 'Simulations/g_force_calculator.py'
     - name: Executar Simulação de Força G
-      run: python g_force_calculator.py
+      run: python Simulations/g_force_calculator.py
       
+    # Camiho atualizado: agora usa 'Simulations/radiation_shield.py'
     - name: Executar Simulação de Radiação
-      run: python radiation_shield.py
+      run: python Simulations/radiation_shield.py
       
+    # Camiho atualizado: agora usa 'Simulations/thermal_simulator.py'
     - name: Executar Simulação Térmica
-      run: python thermal_simulator.py
+      run: python Simulations/thermal_simulator.py
+      
