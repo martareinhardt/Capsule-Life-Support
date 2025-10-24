@@ -1,7 +1,5 @@
 # thermal_simulator.py
-#
 # Simula a eficiência do isolamento térmico da camada criogênica.
-
 # --- Parâmetros de Entrada (Configuráveis) ---
 # Temperatura média do ambiente espacial (pode variar muito, usaremos um valor alto de 80°C)
 temp_ambiente_externo = 80.0 # Temperatura em Celsius (Exemplo de ambiente muito quente)
