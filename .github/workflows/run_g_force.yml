@@ -20,14 +20,13 @@ jobs:
       with:
         python-version: '3.x' 
 
-    # PASSO 1: Instala Matplotlib e Numpy para gerar os gráficos
+    # PASSO 1: Instala Matplotlib e Numpy
     - name: Instalar Dependências de Visualização
       run: pip install matplotlib numpy
 
     # --- EXECUÇÃO DOS CÁLCULOS (Simulations/) ---
-    
-    # O G-Force Calculator já gera o seu próprio gráfico
-    - name: Executar Cálculo de Força G (Gera Chart 1)
+    # Estes scripts SÃO APENAS CÁLCULO, sem geração de gráfico.
+    - name: Executar Cálculo de Força G
       run: python Simulations/g_force_calculator.py
       
     - name: Executar Cálculo de Radiação
@@ -38,14 +37,17 @@ jobs:
 
     # --- EXECUÇÃO DAS VISUALIZAÇÕES (Visualizations/) ---
     
+    # NOVO: Executa o script que gera o gráfico de G-Force
+    - name: Executar Gráfico de Força G
+      run: python Visualizations/visualize_gforce.py
+      
     - name: Executar Gráfico de Radiação
       run: python Visualizations/visualize_radiation.py
       
-    - name: Executar Gráfico Térmico (CORRIGIDO)
+    - name: Executar Gráfico Térmico
       run: python Visualizations/visualize_thermal.py
 
-    # --- SALVAR ARTEFATOS (Upload) ---
-    # Os arquivos PNG são salvos na raiz do ambiente de execução
+    # --- SALVAR ARTEFATOS (Upload dos 3 gráficos) ---
     
     - name: Upload Gráfico de Força G
       uses: actions/upload-artifact@v4
@@ -67,3 +69,4 @@ jobs:
         name: thermal-chart
         path: thermal_viability_chart.png 
         if-no-files-found: ignore
+        
