@@ -1,46 +1,42 @@
-# .github/wo
+# .github/workflows/run_g_force.yml
 
-name: Teste Básico de Execução
+name: Simulação de Viabilidade da Cápsula
 
+# Define quando este workflow deve rodar:
 on:
   push:
+    # Rodar sempre que houver um commit na branch 'main'
     branches: [ main ] 
+    # Rodar apenas se algum script de simulação for modificado
+    paths:
+      - '*.py' 
+  # Permite rodar manualmente na aba 'Actions'
   workflow_dispatch:
 
 jobs:
-  build:
+  run-simulations:
+    # O tipo de máquina virtual que o GitHub usará para rodar o job
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v4
-    
-    # Este passo só checa se o seu arquivo Python está lá.
-    - name: Lista arquivos para debug
-      run: ls -l
-      
-    # Este passo usa o ambiente básico do shell para rodar o Python
-    - name: Tenta rodar o script com python
-      run: python g_force_calculator.py
-          # 3. Executa o script de cálculo de G-Force
-    - name: Executar Cálculo de G-Force e exibir resultados
-      run: python g_force_calculator.py
-      
-    # 4. Executa o novo script de proteção contra radiação
-    - name: Executar Simulação de Radiação
-      run: python radiation_shield.py
-      
-      # ... (código YAML acima)
-    steps:
-    # 1. Checkout e Configurações...
-    # ...
+    # 1. Checkout do código: Pega o seu código do repositório
+    - name: Checkout do Código
+      uses: actions/checkout@v4
+
+    # 2. Configura o Python na máquina virtual
+    - name: Configurar Ambiente Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x' 
+
     # 3. Executa o script de cálculo de G-Force
-    - name: Executar Cálculo de G-Force e exibir resultados
+    - name: Executar Simulação de Força G
       run: python g_force_calculator.py
       
     # 4. Executa a Simulação de Radiação
     - name: Executar Simulação de Radiação
       run: python radiation_shield.py
       
-    # 5. Executa a Simulação Térmica
-    - name: Executar Simulação Térmica Criogênica
+    # 5. Executa a Simulação Térmica Criogênica
+    - name: Executar Simulação Térmica
       run: python thermal_simulator.py
-      
