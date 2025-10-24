@@ -43,4 +43,3 @@ if dose_final_mSv <= limite_seguranca:
     print("\nVIABILIDADE: SUCESSO. A dose de radiação absorvida está abaixo do limite de segurança.")
 else:
     print("\nVIABILIDADE: ALERTA! A dose de radiação excede o limite seguro. Aumente a eficiência da deflexão!")
-  
