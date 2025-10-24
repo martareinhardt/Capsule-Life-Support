@@ -5,7 +5,7 @@ name: Calcular G-Force
 # Define quando este workflow deve rodar:
 on:
   push:
-    # Rodar sempre que houver um commit na branch 'main' (que você renomeou)
+    # Rodar sempre que houver um commit na branch 'main'
     branches: [ main ] 
     # Opcional: Rodar apenas quando o script de cálculo for modificado
     paths:
@@ -32,13 +32,3 @@ jobs:
     # 3. Executa o script de cálculo de G-Force
     - name: Executar Cálculo de G-Force e exibir resultados
       run: python g_force_calculator.py
-      # ... (código existente)
-
-# Para sobrevivência, a Força G deve ser o menor possível, tipicamente < 5G
-if g_force_final_sentida <= 5.0:
-    print("\nSUCESSO: A G-Force final está dentro de limites toleráveis para o corpo humano.")
-else:
-    print("\nALERTA: A G-Force final pode ser perigosa para a sobrevivência a longo prazo.")
-    
-print("Cálculo realizado e atualizado.") # <-- ADICIONE ESTA LINHA
-
